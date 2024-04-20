@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Text</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <a href="/"> 
+        <h2 class="title">Injury Analysis</h2>
+    </a>    
+    <div class="main">
+        <h2 class="result">Injury Diagnostic</h2>
+        {{ generated_text }}
+    </div>
+    
+    <div class="main">
+        <h2 class="result">How To Treat Injury</h2>
+        <pre>{{ instructions_text }}</pre>
+        <div class="main">
+            
+        </div>
+    </div>
+
+    <div class="main">
+        <h2 class="result">More Information</h2>
+        <a>{{ link_text }}</a>
+    </div>
+</body>
+</html>
