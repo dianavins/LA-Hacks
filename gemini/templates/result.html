@@ -16,8 +16,16 @@
     <div class="main">
         <h2 class="result">How To Treat Injury</h2>
         <pre>{{ instructions_text }}</pre>
-        <div class="main">
-            
+        <p class="warning">*This model can make mistakes. Consider checking important information. This is not medical advice. </p>
+        <form id="questionForm">
+            <label for="user_question">Your Question:</label><br>
+            <textarea id="user_question" name="user_question" rows="5" cols="70"></textarea><br>
+            <input class="textinput"type="hidden" id="instructions_text" name="instructions_text" value="{{ instructions_text }}">
+            <input class="submit" type="button" value="Submit Question" onclick="submitQuestion()">
+        </form>
+        
+        <div id="questionResponse">
+            <!-- Response will be displayed here -->
         </div>
     </div>
 
@@ -27,3 +35,24 @@
     </div>
 </body>
 </html>
+
+<script>
+    function submitQuestion() {
+        const userQuestion = document.getElementById('user_question').value;
+        
+        fetch('/ask_question', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `user_question=${encodeURIComponent(userQuestion)}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('questionResponse').innerHTML = `<h3>Response to Your Question:</h3><p>${data}</p>`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
