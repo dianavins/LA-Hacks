@@ -1,21 +1,3 @@
-# import pathlib
-# import google.generativeai as genai
-# from PIL import Image
-
-# # Configure Google Gemini API Key
-# genai.configure(api_key='AIzaSyBlU4k1KyjTNIDEKJGOugsYedWXYt_el5A')
-
-# # Load the image
-# image_path = pathlib.Path('image.jpg')
-
-
-# def generate(image_path):
-#   with Image.open(image_path) as img:
-#       # Generate text from image and text inputs
-#       response = genai.GenerativeModel('gemini-pro-vision').generate_content(["Describe this image", img])
-#       return response.text
-    
-    
 import pathlib
 import google.generativeai as genai
 from PIL import Image
@@ -24,7 +6,6 @@ from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
 app = Flask(__name__)
 
-# Configure Google Gemini API Key
 genai.configure(api_key='AIzaSyBlU4k1KyjTNIDEKJGOugsYedWXYt_el5A')
 
 def generate_text_from_image(image_file):
