@@ -148,3 +148,39 @@ a {
 .generate:hover {
     background-color: #bfbfbf; 
 }
+
+.warning {
+    font-size: 11px;
+    font-weight: 600;
+    color: #a1a1a1;
+}
+
+textarea {
+    border-radius: 20px;
+    border: none;
+    padding: 20px;
+}
+
+.submit {
+    font-weight: 600;
+    background-color: #006adb;
+    color: white;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+.submit:hover {
+    background-color: #0060c6; 
+}
+
+.textinput {
+    margin: 20px;
+    padding: 20px;
+}
+
+label {
+    font-weight: 600;
+}
+
+#questionForm {
+    margin: 20px 0;
+}
